@@ -1,26 +1,17 @@
 """Module for s3fs credential refresher exceptions."""
 
 
-class S3fsCredentialRefresherError(Exception):
-    """Base exception class for credential refresher errors."""
+class AWSError(Exception):
+    """Base exception for AWS-related errors."""
 
 
-class RoleAssumeError(S3fsCredentialRefresherError):
+class RoleAssumeError(AWSError):
     """Exception raised when role assumption fails."""
 
 
-class CredentialServiceError(S3fsCredentialRefresherError):
-    """Exception raised when credential service communication fails."""
+class SigningError(AWSError):
+    """Exception raised when request signing fails."""
 
 
-class CredentialFileError(S3fsCredentialRefresherError):
-    """Exception raised when there are issues with the credentials file."""
-
-
-class MountError(S3fsCredentialRefresherError):
-    """Exception raised when mounting operations fail."""
-
-
-class ConfigurationError(S3fsCredentialRefresherError):
-    """Exception raised when there are configuration issues."""
-
+class CredentialError(AWSError):
+    """Exception raised when there are credential-related issues."""
